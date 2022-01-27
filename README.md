@@ -1,24 +1,9 @@
-# README
+# TODO
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Backoffice
 
-Things you may want to cover:
+Manage online store.
 
-* Ruby version
+## Store Front
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Storefront used for clients, showing catalog products, making purchases.
