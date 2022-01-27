@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   devise_for :admins
   devise_for :users
-  root to: "pages#index"
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  namespace :backoffice do
+    root to: "pages#index"
+  end
+
+  get "pages/profile", to: "pages#profile", as: :profile
+  root to: "pages#index"
 end
