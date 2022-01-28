@@ -4,6 +4,9 @@ Rails.application.routes.draw do
 
   namespace :backoffice do
     root to: "pages#index"
+
+    resources :products
+    # resources :categories
   end
 
   resources :products, only: %i[index show]

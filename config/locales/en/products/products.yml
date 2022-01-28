@@ -1,0 +1,10 @@
+en:
+  views:
+    products:
+      attributes:
+        title: Title
+es:
+  views:
+    products:
+      attributes:
+        title: Título        

@@ -1,0 +1,6 @@
+en:
+  views:
+    common: 
+      created:
+        success: "%{name} created!"
+        error: "error on create new %{name}!"
