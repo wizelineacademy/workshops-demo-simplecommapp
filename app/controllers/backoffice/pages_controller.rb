@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 module Backoffice
   class PagesController < BackofficeController
-    def index
-    end
+    def index; end
   end
 end

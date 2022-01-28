@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 class CategoriesController < ApplicationController
   include ReadOnlyController
 
   private
 
-  def resource_params
-    params.require(:category).permit(:title)
-  end
+    def resource_params
+      params.require(:category).permit(:title)
+    end
 end

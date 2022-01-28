@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ReadOnlyController
   extend ActiveSupport::Concern
 
@@ -16,15 +18,15 @@ module ReadOnlyController
 
   private
 
-  def resource_class
-    controller_path.classify.constantize
-  end
+    def resource_class
+      controller_path.classify.constantize
+    end
 
-  def set_show
-    @resource = @resource_class.find(params[:id])
-  end
+    def set_show
+      @resource = @resource_class.find(params[:id])
+    end
 
-  def set_resource_class
-    @resource_class = resource_class
-  end
+    def set_resource_class
+      @resource_class = resource_class
+    end
 end

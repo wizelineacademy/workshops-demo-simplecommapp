@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module DryController
   extend ActiveSupport::Concern
 
@@ -21,13 +23,17 @@ module DryController
 
     respond_to do |format|
       if @resource.save
-        flash[:notice] = I18n.t('views.common.created.success', name: @resource_class.model_name.human)
+        flash[:notice] =
+          I18n.t('views.common.created.success',
+                 name: @resource_class.model_name.human)
 
-        format.html { redirect_to ["/", controller_path].join("") }
+        format.html { redirect_to ['/', controller_path].join }
         format.json { render :json }
         # format.turbo_stream
       else
-        flash[:alert] = I18n.t('views.common.created.error', name: @resource_class.model_name.human)
+        flash[:alert] =
+          I18n.t('views.common.created.error',
+                 name: @resource_class.model_name.human)
         render :new
       end
     end
@@ -38,7 +44,7 @@ module DryController
   def update
     respond_to do |format|
       if @resource_class.update(resource_params)
-        format.html { redirect_to ["/", controller_path].join("") }
+        format.html { redirect_to ['/', controller_path].join }
         format.json { render :json }
         # format.turbo_stream
       else
@@ -50,7 +56,7 @@ module DryController
   def destroy
     respond_to do |format|
       if @resource.destroy
-        format.html { redirect_to ["/", controller_path].join("") }
+        format.html { redirect_to ['/', controller_path].join }
         format.json { render :json }
         # format.turbo_stream
       else
@@ -61,15 +67,15 @@ module DryController
 
   private
 
-  def resource_class
-    controller_path.classify.delete_prefix('Backoffice::').constantize
-  end
+    def resource_class
+      controller_path.classify.delete_prefix('Backoffice::').constantize
+    end
 
-  def set_show
-    @resource = @resource_class.find(params[:id])
-  end
+    def set_show
+      @resource = @resource_class.find(params[:id])
+    end
 
-  def set_resource_class
-    @resource_class = resource_class
-  end
+    def set_resource_class
+      @resource_class = resource_class
+    end
 end
