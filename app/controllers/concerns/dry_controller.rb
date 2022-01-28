@@ -21,21 +21,12 @@ module DryController
   def create
     @resource = @resource_class.new(resource_params)
 
-    respond_to do |format|
-      if @resource.save
-        flash[:notice] =
-          I18n.t('views.common.created.success',
-                 name: @resource_class.model_name.human)
-
-        format.html { redirect_to ['/', controller_path].join }
-        format.json { render :json }
-        # format.turbo_stream
-      else
-        flash[:alert] =
-          I18n.t('views.common.created.error',
-                 name: @resource_class.model_name.human)
-        render :new
-      end
+    if @resource.save
+      flash[:notice] = I18n.t('views.common.created.success', name: @resource_class.model_name.human)
+      redirect_to ['/', controller_path].join("")
+    else
+      flash[:alert] = I18n.t('views.common.created.error', name: @resource_class.model_name.human)
+      render :new
     end
   end
 
@@ -44,7 +35,7 @@ module DryController
   def update
     respond_to do |format|
       if @resource_class.update(resource_params)
-        format.html { redirect_to ['/', controller_path].join }
+        format.html { redirect_to ['/', controller_path].join("") }
         format.json { render :json }
         # format.turbo_stream
       else
@@ -56,7 +47,7 @@ module DryController
   def destroy
     respond_to do |format|
       if @resource.destroy
-        format.html { redirect_to ['/', controller_path].join }
+        format.html { redirect_to ['/', controller_path].join("") }
         format.json { render :json }
         # format.turbo_stream
       else

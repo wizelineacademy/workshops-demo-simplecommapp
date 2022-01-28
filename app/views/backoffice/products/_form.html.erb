@@ -2,21 +2,6 @@
 <% form_method = product.new_record? ? :post : :patch %>
 
 <%= simple_form_for(product, url: form_path, method: form_method) do |form| %>
-
-<%#= simple_form_for(product, url: backoffice_product_path, method: :patch) do |form| %>
-
-  <% if product.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
-
-      <ul>
-        <% product.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
   <%= form.input :title, wrapper_html: { class: "mb-4" } %>
 
   <%= form.input :description, wrapper_html: { class: "mb-4" }  %>
@@ -25,7 +10,7 @@
 
   <%= form.input :price, wrapper_html: { class: "mb-4" }  %>
 
-  <%= form.input :category, as: :select, collection: Category.all, wrapper_html: { class: "mb-4" }  %>
+  <%= form.input :category_id, as: :select, collection: Category.all, wrapper_html: { class: "mb-4" }  %>
 
   <div>
     <%= form.submit %>
