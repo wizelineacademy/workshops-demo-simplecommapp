@@ -1,0 +1,22 @@
+<div class="row mb-4">
+  <div class="col-8 mx-auto">
+
+    <h1>New product</h1>
+  </div>
+  
+  <pre>
+  <code>
+    <%= @resource.new_record? %>
+  </code>
+</pre>
+
+  <div class="col-8 mx-auto">
+    <%= render "form", product: @resource %>
+  </div>
+</div>
+
+<br>
+
+<div>
+  <%= link_to "Back to products", products_path %>
+</div>

@@ -7,7 +7,7 @@ module Backoffice
     private
 
       def resource_params
-        params.require(:product).permit(:title, :price, :category, :category_id)
+        params.require(:product).permit(:title, :price, :description, :quantity, :category, :category_id)
       end
   end
 end

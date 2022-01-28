@@ -11,6 +11,13 @@ class ApplicationController < ActionController::Base
     else
       root_path
     end
+
+    # case current_user.role
+    # when "admin" then backoffice_root_path
+    # when "manager" then "some_other_path"
+    # else
+    #   root_path
+    # end
   end
 
   protected

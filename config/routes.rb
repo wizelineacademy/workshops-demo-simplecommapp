@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     root to: 'pages#index'
 
     resources :products
-    # resources :categories
+    resources :categories
   end
 
   resources :products, only: %i[index show]

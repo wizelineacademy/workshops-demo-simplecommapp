@@ -1,0 +1,16 @@
+<h1>Editing product</h1>
+
+<pre>
+  <code>
+    <%= @resource.new_record? %>
+  </code>
+</pre>
+
+<%= render "form", product: @resource %>
+
+<br>
+
+<div>
+  <%= link_to "Show this product", @product %> |
+  <%= link_to "Back to products", products_path %>
+</div>

@@ -35,6 +35,7 @@ gem 'devise'
 
 # Print nicely any results in rails console
 gem 'amazing_print'
+gem 'simple_form'
 
 gem 'bootsnap', require: false
 
