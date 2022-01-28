@@ -3,13 +3,12 @@
 class ProductsController < ApplicationController
   include ReadOnlyController
 
-  after_action :add_more_stuff, only: :show
+  before_action :add_more_stuff, only: :index
 
   private
 
     def add_more_stuff
-      # @@categories = @resource.categories(enabled: true)
-      # @categories = @resource.categories.recent
+      @api_products = FakeStoreService.new.read
     end
 
     def resource_params

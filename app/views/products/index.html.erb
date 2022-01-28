@@ -1,6 +1,6 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Products</h1>
+<h1>Products#index</h1>
 
 <div id="products">
   <% @resources.each do |product| %>
@@ -10,6 +10,22 @@
     </p>
   <% end %>
 </div>
+
+<% if @api_products.present? && @api_products.success? %>
+<table class="table table-stripped table-hover">
+  <tbody>
+    <% @api_products.body.each do |product| %>
+      <tr>
+        <th><%= product.id %></th>
+        <td><%= product.title %></td>
+        <td><%= product.price %></td>
+        <td><%= product.category %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
+
 
 <% if admin_signed_in? %>
   <%= link_to "New #{@resource_class.model_name.human}",
